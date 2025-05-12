@@ -1,10 +1,6 @@
 # PHÂN CẤP OWNER WORKSPACE AND SYSTEM + CÂU HỎI
 
 ## BỘ CÂU TRẢ LỜI NHÓM 4
-### **Câu 12: **Khi người dùng thay đổi deadline của task, hệ thống có gửi thông báo đến những người liên quan không? Nếu không, làm sao họ biết có sự thay đổi quan trọng?
-- Mình xin trả lời câu hỏi của bạn ABCXYZ....: ==> Hiện tại, khi người dùng thay đổi deadline của một task, hệ thống chưa có cơ chế gửi thông báo tự động, cũng như chức thông báo đến những người liên quan. Để đảm bảo mọi thành viên nắm bắt kịp thời các thay đổi quan trọng như deadline của **task**, nhóm mình ta đang tạm thời tận dụng các nền tảng nhắn tin “hot” và phổ biến như **Messenger, Zalo** để gửi thông báo thủ công đến người liên quan đến **task** đó.
-- Và mình xin cảm ơn nhóm bạn đã đặt câu hỏi, giúp nhóm mình nhận ra thiếu một chức năng không kém quan trọng của hệ thống. Và trong giai đoạn tiếp theo, nhóm sẽ bổ sung cơ chế thông báo tự động ngay trong hệ thống, cho phép:
-    - Gửi email hoặc push chức năng thông báo (notification đến tất cả thành viên liên quan khi có thay đổi deadline.
 ---
 
 ### **Câu 1:** Nhóm đã xác định rõ luồng chuyển trạng thái của **task** chưa? Ví dụ: task đang "Đang làm" có thể chuyển thẳng sang "Hoàn thành" hay phải qua bước "Kiểm tra"? Nếu chưa có quy tắc cụ thể thì nhóm có cảm thấy logic hệ thống có hơi lỏng lẻo không?
@@ -246,5 +242,112 @@ description: // Lý do thay đổi (được điền bởi admin khi sửa task)
         - Và lúc này chỉ có duy nhất member - admin - owner yều cầu mới chỉnh được task trên. Và sau khi chỉnh link file hay 1 số thông tin như bảng cơ sở dữ liệu cấp -> thì nhấn lưu lại.
         - Sau đó member gửi thông báo sửa xong.
         - Admin nhận thông báo và đến task kiểm tra và cập nhật task DONE lại cho Member.
+---
+
+### **Câu 12: **Khi người dùng thay đổi deadline của task, hệ thống có gửi thông báo đến những người liên quan không? Nếu không, làm sao họ biết có sự thay đổi quan trọng?
+- Mình xin trả lời câu hỏi của bạn ABCXYZ....: ==> Hiện tại, khi người dùng thay đổi deadline của một task, hệ thống chưa có cơ chế gửi thông báo tự động, cũng như chức thông báo đến những người liên quan. Để đảm bảo mọi thành viên nắm bắt kịp thời các thay đổi quan trọng như deadline của **task**, nhóm mình ta đang tạm thời tận dụng các nền tảng nhắn tin “hot” và phổ biến như **Messenger, Zalo** để gửi thông báo thủ công đến người liên quan đến **task** đó.
+- Và mình xin cảm ơn nhóm bạn đã đặt câu hỏi, giúp nhóm mình nhận ra thiếu một chức năng không kém quan trọng của hệ thống. Và trong giai đoạn tiếp theo, nhóm sẽ bổ sung cơ chế thông báo tự động ngay trong hệ thống, cho phép:
+    - Gửi email hoặc push chức năng thông báo (notification đến tất cả thành viên liên quan khi có thay đổi deadline.
+---
+
+## BỘ CÂU TRẢ LỜI NHÓM 7
+### Câu 1: Tại sao lại cần phân chia vai trò giữa Owner, Admin và Member trong Workspace, trong khi một số tính năng của chúng khá giống nhau?
+- Mình xin trả lời câu hỏi của bạn ABCXYZ....: 
+=> Việc phân chia vai trò trong một dự án quản lý rất quan trọng, vì:
+
+- Mỗi người chỉ được cấp quyền cần thiết để hoàn thành công việc của họ, giảm nguy cơ vô tình (hoặc cố ý) thay đổi, xóa dữ liệu quan trọng.
+- Ví dụ, Member chỉ nên được phép tạo và chỉnh sửa task, nhưng không cần – và không nên có – quyền xóa Workspace do Owner thiết lập, nhằm tránh thao tác nhầm và tuân thủ nguyên tắc phân quyền tối thiểu. Vì thế việc phân quyền giữa các bên thật sự quan trọng.
+---
+
+### Câu 2: Trong phần “System Management” có thể xem thống kê hệ thống .vậy có phân biệt được các workspace thuộc các tổ chức/nhóm khác nhau không?
+- Mình xin trả lời câu hỏi của bạn ABCXYZ....: 
+=> Là không, phần “System Management” hiện tại chỉ hiển thị các chỉ số tổng quan của hệ thống, như:
+
+- Tổng số người dùng (user) đang hoạt động
+- Số lượng task/workspace/project theo tháng (đồ thị tăng trưởng)
+Nó **không** phân tách hay đối chiếu dữ liệu theo từng tổ chức, nhóm hay bất kỳ workspace cụ thể nào — và cũng không đi sâu vào nội dung mà người dùng đang thao tác. Phần này chỉ để monitoring tổng thể.
+
+---
+
+### Câu 3: Chức năng “Analytics Workspace” có cập nhật theo thời gian thực hay theo chu kỳ?
+- Mình xin trả lời câu hỏi của bạn ABCXYZ....: 
+=> Chức năng “Analytics Workspace” hiện không chạy theo lịch định kỳ mà luôn cập nhật ngay khi có sự kiện liên quan như:
+
+1. **Cập nhật tức thời:**
+ Mỗi khi người dùng tạo/sửa/xóa task, project hay thay đổi bất kỳ dữ liệu nào trong Workspace, phía frontend sẽ gọi API để lấy ngay số liệu Analytics mới nhất và hiển thị ngay lập tức.
+2. **Không sử dụng WebSocket:**
+ Hiện tại nhóm mình chưa triển khai kênh đẩy (push) qua Socket.IO hay WebSocket, nên UI chỉ “lắng nghe” và cập nhật qua các request sau mỗi thao tác của người dùng hoặc khi load lại trang.
+---
+
+### Câu 4: Hệ thống có cơ chế cảnh báo deadline sắp đến hoặc task bị bỏ quên không?
+Mình xin trả lời câu hỏi của bạn ABCXYZ....:
+
+1. **Thứ nhất:** Hiện tại nhóm mình chưa có thông báo tự động:
+    1. Hệ thống chưa gửi email hay có chức năng thông báo (notification) khi deadline đã qua.
+2. **Thứ hai: **Phần mềm có cơ chế trực quan ngay trên giao diện:
+    1. **Màu sắc trạng thái:**
+        1. **Màu trắng: **Còn nhiều thời gian (lớn hơn 15 ngày).
+        2. **Màu vàng**: Còn khá nhiều thời gian (trong khoảng 8 đến 14 ngày).
+        3. **Màu cam**: Sắp hết hạn (trong khoảng 4 đến 7 ngày).
+        4. **Đỏ**: Sắp quá hạn (dưới 3 ngày).
+3. **Thứ ba:** Bộ lọc & tìm kiếm chuyên biệt:
+    1. Thêm bộ lọc tìm kiếm **“Overdue”** để nhanh chóng liệt kê các task quá hạn.
+    2. Cho phép lọc theo người được giao, giúp cá nhân đối chiếu xem có task nào đang trễ không.
+4. **Thứ tư:** Analytics Dashboard cho toàn bộ người dùng:
+    1. Tổng hợp số lượng task quá hạn.
+    2. Biểu đồ xu hướng (trend) số task quá hạn theo project.
+    3. Admin/leader có thể dùng bộ lọc tìm kiếm trên dashboard để “truy vết” các trường hợp trễ và xử lý phù hợp theo các điều luật của công ty cũng như các nhóm học tập.
+5. **Thứ năm:** Giải pháp cho trường hợp trên:
+    1. Tuy đã có bộ lọc tìm kiếm cũng như chức năng phân tích trực quan để truy vết, nhưng nhóm mình cũng sẽ phát triển thêm chức năng thông báo như:
+        1. **Thông báo Email:** khi task sắp đến hạn (ví dụ 24 giờ trước deadline).
+        2. **Chức năng thông báo: **Cho các thành viên cũng như Admin, không ai bị bỏ sót thông tin.
+---
+
+### Câu 5: Các thao tác kéo và thả task có đảm bảo an toàn dữ liệu không.Nếu bị gián đoạn giữa chừng (ví dụ mất mạng), thao tác đó có rollback hay retry không?
+Mình xin trả lời câu hỏi của bạn ABCXYZ....:
+
+- **Thứ nhất: Cơ chế hiện tại:**
+    - Cập nhật “ngay lập tức” trên UI với cơ chế optimistic update
+    - Ngay khi người dùng thả task, frontend sẽ cập nhật tạm thời vị trí mới (giúp UX mượt mà).
+    - Đồng thời gọi API gửi yêu cầu di chuyển task xuống server.
+- **Thứ hai: Xử lý lỗi ngoại lệ, rollback và retry:**
+    - Giao diện sẽ tự động “quay ngược”  về vị trí cũ của task, đảm bảo không có thay đổi sai lệch hiển thị.
+    - Hiển thị thông báo lỗi (toast) cho người dùng.
+---
+
+### Câu 6: Khi một thành viên bị xóa khỏi Workspace nhưng vẫn còn giữ task thì task đó sẽ được xử lý thế nào?
+Mình xin trả lời câu hỏi của bạn ABCXYZ....:
+
+- Khi một Member bị xóa khỏi Workspace, các task mà họ đang phụ trách sẽ không bị xóa ngay lập tức mà sẽ vào trạng thái “Unassigned” (chưa có người phụ trách). Cụ thể:
+1. **Chuyển task về trạng thái Unassigned**
+ – Toàn bộ task (đang mở, in progress, review…) do người đó phụ trách ngay lập tức được gắn nhãn “Member này đã bị xóa khỏi workspace”.
+ – Trường Assignee trong database được set về `null` , để người quản lý hệ thống có thể biết.
+2. **Đối với nhóm sinh viên hoặc các nhóm công ty nhỏ:**
+ – Sẽ có một số ràng buộc với nhau để các thành viên không xảy ra các sai lầm không đáng có như trên. Như vậy, dù là dự án quy mô lớn hay nhóm sinh viên/công ty nhỏ, hệ thống đều đảm bảo không mất dữ liệu, tạo điều kiện để phân công lại hiệu quả.
+---
+
+### Câu 7: Có giới hạn số lượng task, project hoặc member trong mỗi Workspace không? Nếu có thì mức giới hạn là gì và vì sao lại đặt ra?
+Mình xin trả lời câu hỏi của bạn ABCXYZ....:
+
+- Hiện tại, Workspaces được cung cấp hoàn toàn miễn phí và **không giới hạn** về số lượng task, project hay thành viên.
+- Tuy nhiên, để chuẩn bị cho tương lai khi hệ thống có lượng người dùng lớn:
+    - **Chuyển sang mô hình đa tầng:**
+ – Ví dụ gói Free vẫn giữ không cho mọi người sài miễn phí nhưng sẽ có ràng buộc về số lượng mà đối tượng tạo ra.
+ – Gói Trả phí vẫn sẽ có ràng buộc nhưng số lượng cung cấp sẽ cực nhiều đủ để thõa mãn được người dùng.
+    - **Vì sao phải giới hạn/thu phí**
+ – **Chi phí vận hành**: Khi số lượng task/project/member tăng đột biến, chi phí lưu trữ, tính toán, backup và giám sát cũng tăng lên.
+ – **Bảo đảm hiệu năng**: Giới hạn ở một mức nhất định giúp duy trì tốc độ phản hồi và trải nghiệm mượt mà cho tất cả người dùng.
+ – **Phát triển tính năng bền vững**: Doanh thu từ các gói trả phí sẽ tái đầu tư vào phát triển, bảo mật và hỗ trợ kỹ thuật.
+---
+
+### Câu 8: người dùng có thể tham gia nhiều Workspace cùng lúc và nếu có, giao diện có hỗ trợ chuyển đổi nhanh không?
+Mình xin trả lời câu hỏi của bạn ABCXYZ....:
+
+- Là có. Cụ thể là:
+- **Tham gia đồng thời nhiều Workspace:**
+    - Mỗi user có thể được mời hoặc tự tạo bao nhiêu Workspace tùy thích, khai thác song song các dự án, nhóm hoặc phòng ban khác nhau.
+- **Thanh chuyển Workspace nhanh:**
+    - Ở góc trên cùng bên trái, luôn có dropdown hoặc biểu tượng “Workspace switcher”.
+    - Khi click vào sẽ hiện danh sách tất cả các Workspace mà user đang tham gia, kèm avatar hoặc logo nhỏ, tên rõ ràng.
 
 
